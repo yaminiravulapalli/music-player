@@ -1,68 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Advanced Music Player — Portfolio UI</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProMusic — Portfolio Player</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
-    <section class="player-card" aria-label="Music player">
-      <div class="left-column">
-        <div class="album-wrap" aria-hidden="false">
-          <div class="album-ring"></div>
-          <img id="albumArt" class="album-art" src="" alt="Album art" />
-        </div>
-
-        <div class="now-playing">
-          <div class="meta">
-            <div class="track-info">
-              <h2 id="title" class="title">Song Title</h2>
-              <p id="artist" class="artist">Artist Name</p>
-            </div>
-            <button id="fav" class="icon-btn" aria-pressed="false" title="Favorite">♡</button>
-          </div>
-
-          <div class="progress-row">
-            <input id="progress" class="progress" type="range" min="0" max="100" step="0.1" value="0" aria-label="Track progress" />
-            <div class="time">
-              <span id="current">0:00</span>
-              <span id="duration">0:00</span>
-            </div>
-          </div>
-
-          <div class="controls" role="group" aria-label="Playback controls">
-            <button id="prev" class="control-btn" title="Previous (Left Arrow)">⏮</button>
-            <button id="play" class="play-btn" title="Play / Pause (Space)" aria-pressed="false">▶</button>
-            <button id="next" class="control-btn" title="Next (Right Arrow)">⏭</button>
-          </div>
-
-          <div class="extra-controls">
-            <label class="vol-label">
-              <input id="volume" type="range" min="0" max="1" step="0.01" value="0.9" aria-label="Volume" />
-            </label>
-            <button id="shuffle" class="icon-btn" title="Shuffle">🔀</button>
-            <button id="repeat" class="icon-btn" data-mode="off" title="Repeat">🔁</button>
-          </div>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="icon">🎵</div>
+        <div class="text">
+          <h3>ProMusic</h3>
+          <p>Portfolio</p>
         </div>
       </div>
 
-      <aside class="playlist-column" aria-label="Playlist">
-        <header class="playlist-header">
-          <h3>Playlist</h3>
-          <small id="playlistCount">0 tracks</small>
-        </header>
+      <nav class="nav">
+        <ul>
+          <li class="active">Home</li>
+          <li>Browse</li>
+          <li>Your Library</li>
+          <li>Search</li>
+        </ul>
+      </nav>
+    </aside>
 
-        <ul id="playlist" class="playlist" role="list"></ul>
+    <!-- Main Content -->
+    <main class="main">
+      <header class="header">
+        <h1>Discover</h1>
+        <p>Portfolio UI demo — advanced player features</p>
+      </header>
 
-        <canvas id="visualizer" class="visualizer" aria-hidden="true"></canvas>
-      </aside>
-    </section>
+      <section class="albums">
+        <div class="album" style="background: linear-gradient(135deg,#6c5ce7,#00d4ff)">
+          <div class="initial">I</div>
+          <div class="meta">
+            <h3>Inthandham</h3>
+            <p>Artist A</p>
+          </div>
+        </div>
 
-    <!-- Hidden audio element -->
-    <audio id="audio" preload="metadata"></audio>
-  </main>
+        <div class="album" style="background: linear-gradient(135deg,#00cec9,#55efc4)">
+          <div class="initial">K</div>
+          <div class="meta">
+            <h3>Kammani</h3>
+            <p>Artist B</p>
+          </div>
+        </div>
+
+        <div class="album" style="background: linear-gradient(135deg,#ff7675,#fd79a8)">
+          <div class="initial">M</div>
+          <div class="meta">
+            <h3>Manase Theeyaga</h3>
+            <p>Artist C</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Player Sidebar -->
+    <aside class="player">
+      <div class="album-art">
+        <div class="art-circle">
+          <div class="initial big">I</div>
+        </div>
+      </div>
+
+      <div class="track-info">
+        <h2>Inthandham</h2>
+        <p>Artist A</p>
+      </div>
+
+      <div class="progress">
+        <span>0:44</span>
+        <div class="bar"><div class="fill"></div></div>
+        <span>3:36</span>
+      </div>
+
+      <div class="controls">
+        <button>⏮</button>
+        <button class="play">▶</button>
+        <button>⏭</button>
+      </div>
+
+      <div class="options">
+        <div class="left">
+          <span>Speed</span>
+          <select>
+            <option>1x</option>
+            <option>1.5x</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="queue">
+        <h3>Queue</h3>
+        <ul>
+          <li>
+            <h4>Kammani</h4>
+            <p>Artist B</p>
+          </li>
+          <li>
+            <h4>Manase Theeyaga</h4>
+            <p>Artist C</p>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </div>
 
   <script src="index.js"></script>
 </body>
